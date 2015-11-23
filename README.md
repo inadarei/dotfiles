@@ -8,7 +8,7 @@ Irakli's Dotfiles
     ```console
     git clone https://github.com/inadarei/dotfiles.git irakli-dotfiles
     ```
-2. Edit your ~/.profile, ~/.bash_profile or ~/.bashrc file and add the following:
+2. Edit your `~/.profile`, `~/.bash_profile` or `~/.bashrc` file and add the following:
 
     ```
     if [ -d ~/irakli-dotfiles ]; then
