@@ -3,6 +3,11 @@ function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; }
 alias pp="ps axu | pager"
 alias sum="xargs | tr ' ' '+' | bc" ## Usage: echo 1 2 3 | sum
+alias external-ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias dnskill="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
+alias lockscreen="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CG
+
+alias ia="open $1 -a /Applications/iA\ Writer.app"
 
 ##### Git Goodies: #####
 
