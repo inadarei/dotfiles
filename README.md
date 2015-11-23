@@ -22,3 +22,8 @@ In order to use Docker aliases (in .docker file) you will need to make sure you 
        source ~/irakli-dotfiles/.utilities
     fi
     ```
+3. Install .vimrc: 
+
+   ```console
+   ln -s ~/irakli-dotfiles/.vimrc ~/.vimrc
+   ```
