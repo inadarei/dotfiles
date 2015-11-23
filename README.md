@@ -8,7 +8,7 @@ In order to use Docker aliases (in .docker file) you will need to make sure you 
 
 ## Installation
 
-1. Check our  the repository:
+1. Clone the repository:
     
     ```console
     git clone https://github.com/inadarei/dotfiles.git irakli-dotfiles
