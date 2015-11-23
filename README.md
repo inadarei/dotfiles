@@ -19,5 +19,6 @@ In order to use Docker aliases (in .docker file) you will need to make sure you 
     if [ -d ~/irakli-dotfiles ]; then
        source ~/irakli-dotfiles/.docker
        source ~/irakli-dotfiles/.vimrc
+       source ~/irakli-dotfiles/.utilities
     fi
     ```
