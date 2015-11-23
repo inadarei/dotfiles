@@ -1,6 +1,11 @@
 Irakli's Dotfiles
 ========
 
+## Prerequisites
+
+In order to use Docker aliases (in .docker file) you will need to make sure you have a working Docker environment. On Mac OS-X you can easily get one by installing https://www.docker.com/docker-toolbox. If you fancy Parallels over Virtualbox, make sure to check out: http://kb.parallels.com/en/123356
+
+
 ## Installation
 
 1. Check our  the repository:
