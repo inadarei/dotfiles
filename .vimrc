@@ -8,7 +8,7 @@ set smartcase
 set hlsearch
 
 " highlight current line
-set cursorline
+" set cursorline
 " highlight bg color of current line
 " hi CursorLine   cterm=NONE ctermbg=darkgreen ctermfg=white
 
@@ -26,5 +26,5 @@ set shiftwidth=2
 set expandtab
 
 " pretty numbering
-set number
+" set number
 " highlight LineNr cterm=NONE ctermfg=black ctermbg=white
