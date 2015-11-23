@@ -13,5 +13,6 @@ Irakli's Dotfiles
     ```
     if [ -d ~/irakli-dotfiles ]; then
        source ~/irakli-dotfiles/.docker
+       source ~/irakli-dotfiles/.vimrc
     fi
     ```
