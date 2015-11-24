@@ -1,11 +1,11 @@
 ### ALIASES
 
 # Usage example: ffmpeg source.m4a target.mp3
-alias ffmpeg="docker run --rm -v $(pwd):/tmp/workdir -w='/tmp/workdir' jrottenberg/ffmpeg -i $1 $2"
+alias ffmpeg='docker run --rm -v $(pwd):/tmp/workdir -w="/tmp/workdir" jrottenberg/ffmpeg -i $1 $2'
 
 # Usage: jekyll-dev or: jekyll <arguments>
-alias jekyll-dev='docker run --rm -v $(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll jekyll s -w --limit_posts 20'
-alias jekyll='docker run --rm -v $(pwd):/srv/jekyll -it -p 4000:4000 jekyll/jekyll jekyll s'
+alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
+alias jekyll-dev='jekyll s -w --limit_posts 20'
 
 # TODO: Ansible
 
