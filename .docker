@@ -5,7 +5,7 @@ alias ffmpeg='docker run --rm -v $(pwd):/tmp/workdir -w="/tmp/workdir" jrottenbe
 
 # Usage: jekyll-dev or: jekyll <arguments>
 alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
-alias jekyll-dev='jekyll s -w --limit_posts 20'
+alias jekyll-dev='jekyll s --host 0.0.0.0 -w --limit_posts 20'
 
 # TODO: Ansible
 

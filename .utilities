@@ -2,7 +2,6 @@ function lt() { ls -lhtrsa "$@" | tail; }
 function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; }
 
-alias gs='git status -sb'
 alias pp="ps axu | pager"
 alias sum="xargs | tr ' ' '+' | bc" ## Usage: echo 1 2 3 | sum
 alias external-ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -13,6 +12,7 @@ alias ia="open $1 -a /Applications/iA\ Writer.app"
 
 ##### Git Goodies: #####
 
+alias gs='git status -sb'
 alias gitlog='git log origin/master.. --stat'
 
 # Branch code for feature development. $1 is the name of the new branch
