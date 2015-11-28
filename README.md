@@ -16,12 +16,17 @@ In order to use Docker aliases (in .docker file) you will need to make sure you 
 2. Edit your `~/.profile`, `~/.bash_profile` or `~/.bashrc` file and add the following:
 
     ```
-    if [ -d ~/irakli-dotfiles ]; then
-       source ~/irakli-dotfiles/.utilities
-       source ~/irakli-dotfiles/.docker
-       source ~/irakli-dotfiles/.comfort
+    dotfiles_loc="$HOME/irakli-dotfiles"
+    if [ -d $dotfiles_loc ]; then
+      for file in $dotfiles_loc/.*; do
+        filename=${file##*/}
+        if [ -f $file -a $filename != '.vimrc' ]; then
+          source "$file";
+        fi
+      done
     fi
     ```
+    
 3. Install .vimrc: 
 
    ```console
