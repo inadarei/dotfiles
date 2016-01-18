@@ -4,18 +4,20 @@
 alias ffmpeg='docker run --rm -v $(pwd):/tmp/workdir -w="/tmp/workdir" jrottenberg/ffmpeg -i $1 $2'
 
 # Usage: jekyll-dev or: jekyll <arguments>
-alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
-alias jekyll-dev='jekyll s --host 0.0.0.0 -w --limit_posts 20'
+# alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
+alias jekyll-dev='jekyll s -H 0.0.0.0 -w --force_polling --limit_posts 20'
 
 # TODO: Ansible
 
 ### Docker Management
 
-alias dm-ssh='docker-machine ssh `docker-machine active`'
-alias dm-ip='docker-machine ip `docker-machine active`'
-alias dm-env='docker-machine env `docker-machine active`'
-alias dm-inspect='docker-machine inspect `docker-machine active`'
-alias dm-config='docker-machine config `docker-machine active`'
+ACTIVE_DOCKER_MACHINE=`docker-machine active`
+
+alias dm-ssh='docker-machine ssh $ACTIVE_DOCKER_MACHINE'
+alias dm-ip='docker-machine ip $ACTIVE_DOCKER_MACHINE'
+alias dm-env='docker-machine env $ACTIVE_DOCKER_MACHINE'
+alias dm-inspect='docker-machine inspect $ACTIVE_DOCKER_MACHINE'
+alias dm-config='docker-machine config $ACTIVE_DOCKER_MACHINE'
 alias docker-stats="docker stats $(docker ps|grep -v 'NAMES'| rev | awk '{print $1}' | rev|tr '\n' ' ')"
 alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
 alias dm-psa='docker ps -a --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
