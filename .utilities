@@ -7,13 +7,21 @@ alias sum="xargs | tr ' ' '+' | bc" ## Usage: echo 1 2 3 | sum
 alias external-ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias dnskill="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias lockscreen="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CG"
+alias screensaver="open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
+alias subl='open -a /Applications/Sublime\ Text.app'
 
-alias ia="open $1 -a /Applications/iA\ Writer.app"
+
+alias  ia="open $1 -a /Applications/iA\ Writer.app"
+alias md2="open $1 -a /Applications/Marked\ 2.app"
+alias mdp="open $1 -a /Applications/Markdown\ Pro.app/"
 
 ##### Git Goodies: #####
 
 alias gs='git status -sb'
-alias gitlog='git log origin/master.. --stat'
+function gitlog() {
+  currbranch=$(git branch | grep "*" | awk '{ print $2 }')
+  git log origin/$currbranch.. --stat
+}
 
 # Branch code for feature development. $1 is the name of the new branch
 function branchcode() {
@@ -27,7 +35,7 @@ function branchcode() {
     git push --set-upstream origin $1
 }
 
-##### End Git Goodies #####
+#----- End Git Goodies -----
 
 # @see http://stackoverflow.com/questions/18215389/how-do-i-measure-request-and-response-times-at-once-using-curl
 function perf() {
