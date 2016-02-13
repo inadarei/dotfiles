@@ -11,7 +11,7 @@ alias dnskill="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias lockscreen="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CG"
 alias screensaver="open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 alias subl='open -a /Applications/Sublime\ Text.app'
-alias cahceclear='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
+alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
 
 alias  ia="open $1 -a /Applications/iA\ Writer.app"
