@@ -5,7 +5,7 @@ alias ffmpeg='docker run --rm -v $(pwd):/tmp/workdir -w="/tmp/workdir" jrottenbe
 
 # Usage: jekyll-dev or: jekyll <arguments>
 # alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
-alias jekyll-dev='jekyll s -H 0.0.0.0 -w --force_polling --limit_posts 20'
+alias jekyll-dev='jekyll s -H 0.0.0.0 -w --limit_posts 20'
 
 # TODO: Ansible
 
@@ -18,9 +18,10 @@ alias dm-ip='docker-machine ip $ACTIVE_DOCKER_MACHINE'
 alias dm-env='docker-machine env $ACTIVE_DOCKER_MACHINE'
 alias dm-inspect='docker-machine inspect $ACTIVE_DOCKER_MACHINE'
 alias dm-config='docker-machine config $ACTIVE_DOCKER_MACHINE'
-alias docker-stats="docker stats $(docker ps|grep -v 'NAMES'| rev | awk '{print $1}' | rev|tr '\n' ' ')"
 alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
 alias dm-psa='docker ps -a --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
+alias docker-stats="docker stats $(docker ps|grep -v 'NAMES'| rev | awk '{print $1}' | rev|tr '\n' ' ')"
+alias docker-restart='docker ps -a -f status=exited -q | xargs docker restart'
 
 alias dm-clean='docker ps -a -f status=exited -q | xargs docker rm -f'
 alias dm-cleanimages="docker images | grep -i none | awk '{print $3}' | xargs docker rmi -f"

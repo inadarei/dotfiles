@@ -2,6 +2,8 @@ function lt() { ls -lhtrsa "$@" | tail; }
 function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }
 function fname() { find . -iname "*$@*"; }
 
+alias lls="ls -ahiFGA"
+alias lts="ls -ahltrcFGA"
 alias pp="ps axu | pager"
 alias sum="xargs | tr ' ' '+' | bc" ## Usage: echo 1 2 3 | sum
 alias external-ip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -9,6 +11,7 @@ alias dnskill="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 alias lockscreen="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CG"
 alias screensaver="open -a /System/Library/Frameworks/ScreenSaver.framework/Versions/A/Resources/ScreenSaverEngine.app"
 alias subl='open -a /Applications/Sublime\ Text.app'
+alias cahceclear='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
 
 alias  ia="open $1 -a /Applications/iA\ Writer.app"
@@ -18,7 +21,8 @@ alias mdp="open $1 -a /Applications/Markdown\ Pro.app/"
 ##### Git Goodies: #####
 
 alias gs='git status -sb'
-function gitlog() {
+alias gitsubmodules='git submodule update --init --recursive'
+function gitsanity() {
   currbranch=$(git branch | grep "*" | awk '{ print $2 }')
   git log origin/$currbranch.. --stat
 }

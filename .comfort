@@ -6,3 +6,6 @@ shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
 shopt -s cdspell
+
+# requires https://github.com/nvbn/thefuck to be installed
+eval $(thefuck --alias)
