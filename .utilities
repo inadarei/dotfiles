@@ -13,7 +13,6 @@ alias screensaver="open -a /System/Library/Frameworks/ScreenSaver.framework/Vers
 alias subl='open -a /Applications/Sublime\ Text.app'
 alias flushdns='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
-
 alias  ia="open $1 -a /Applications/iA\ Writer.app"
 alias md2="open $1 -a /Applications/Marked\ 2.app"
 alias mdp="open $1 -a /Applications/Markdown\ Pro.app/"
@@ -25,6 +24,11 @@ alias gitsubmodules='git submodule update --init --recursive'
 function gitsanity() {
   currbranch=$(git branch | grep "*" | awk '{ print $2 }')
   git log origin/$currbranch.. --stat
+}
+
+# Date Git branch was created
+function git-bc() {
+  git show --summary `git merge-base $1 $2`
 }
 
 # Branch code for feature development. $1 is the name of the new branch
