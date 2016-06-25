@@ -32,3 +32,11 @@ In order to use Docker aliases (in .docker file) you will need to make sure you 
    ```console
    ln -s ~/irakli-dotfiles/.vimrc ~/.vimrc
    ```
+
+## Examples
+
+1. Using FFMPeg via Dockerized alias:
+    
+    ```
+    ffmpeg -i {input}.mov -vcodec h264 -acodec aac -strict -2 {output}.mp4
+    ```
