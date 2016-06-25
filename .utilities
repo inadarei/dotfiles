@@ -26,6 +26,11 @@ function gitsanity() {
   git log origin/$currbranch.. --stat
 }
 
+#view CSV files quickly
+function csview() {
+column -s, -t < $1 | less -#2 -N -S
+}
+
 # Date Git branch was created
 function git-bc() {
   git show --summary `git merge-base $1 $2`

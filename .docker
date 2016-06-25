@@ -12,8 +12,6 @@ alias jekyll-dev='jekyll s -H 0.0.0.0 -w --limit_posts 20'
 
 ### Docker Management
 
-ACTIVE_DOCKER_MACHINE=`docker-machine active`
-
 alias dm-ssh='docker-machine ssh $ACTIVE_DOCKER_MACHINE'
 alias dm-ip='docker-machine ip $ACTIVE_DOCKER_MACHINE'
 alias dm-env='docker-machine env $ACTIVE_DOCKER_MACHINE'
