@@ -17,6 +17,24 @@ alias  ia="open $1 -a /Applications/iA\ Writer.app"
 alias md2="open $1 -a /Applications/Marked\ 2.app"
 alias mdp="open $1 -a /Applications/Markdown\ Pro.app/"
 
+#### GPG stuff ####
+
+
+
+# Encrypt a plain-text message
+function gpg-encrypt() {
+   if [ "$#" -ne 2 ]
+   then
+     echo 'Usage: gpg-encrypt "recipient-uid" "text"'
+     echo '  For recepient-uid you can use any part of the uid (name, email, nickname)'
+     echo '  You can look up uids for imported keys by running: "gpg -k"' 
+     return 1
+   fi
+
+   echo "$2" | gpg --armor --encrypt --recipient "$1"
+}
+
+
 ##### Git Goodies: #####
 
 alias gs='git status -sb'
@@ -26,9 +44,11 @@ function gitsanity() {
   git log origin/$currbranch.. --stat
 }
 
-#view CSV files quickly
-function csview() {
-column -s, -t < $1 | less -#2 -N -S
+# view CSV files quickly http://stackoverflow.com/a/1875712
+function csview()
+{
+    local file="$1"
+    cat "$file" | sed -e 's/,,/, ,/g' | column -s, -t | less -#5 -N -S
 }
 
 # Date Git branch was created
