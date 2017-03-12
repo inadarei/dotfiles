@@ -22,5 +22,6 @@ alias docker-restart='docker ps -a -f status=exited -q | xargs docker restart'
 alias dm-clean='docker ps -a -f status=exited -f status=created -q | xargs docker rm -f'
 alias dm-dropimages="docker images | grep -i ago | awk '{print $3}' | xargs docker rmi -f"
 alias dm-cleanimages="docker images | grep -i none | awk '{print $3}' | xargs docker rmi -f"
+alias dm-cleanvolumes="docker volume rm `docker volume ls -q -f dangling=true`"
 
 # alias docker-stats="docker stats $(docker ps|grep -v 'NAMES'| rev | awk '{print $1}' | rev|tr '\n' ' ')"
