@@ -15,13 +15,20 @@ alias dm-ip='docker-machine ip $ACTIVE_DOCKER_MACHINE'
 alias dm-env='docker-machine env $ACTIVE_DOCKER_MACHINE'
 alias dm-inspect='docker-machine inspect $ACTIVE_DOCKER_MACHINE'
 alias dm-config='docker-machine config $ACTIVE_DOCKER_MACHINE'
-alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
-alias dm-psa='docker ps -a --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
-alias docker-restart='docker ps -a -f status=exited -q | xargs docker restart'
 
+alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
+alias docker-restart='docker ps -a -f status=exited -q | xargs docker restart'
+# Shorter output, keeping things sane on laptop-sized screens:
+alias dm-psa='docker ps -a --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
+# Remove inactive containers:
 alias dm-clean='docker ps -a -f status=exited -f status=created -q | xargs docker rm -f'
-alias dm-dropimages="docker images | grep -i ago | awk '{print $3}' | xargs docker rmi -f"
+# Remove all containers:
+alias dm-drop='docker ps -a -q | xargs docker rm -f'
+# Remove unused images:
 alias dm-cleanimages="docker images | grep -i none | awk '{print $3}' | xargs docker rmi -f"
-alias dm-cleanvolumes="docker volume rm `docker volume ls -q -f dangling=true`"
+# Remove all local images:
+alias dm-dropimages="docker images | grep -i ago | awk '{print $3}' | xargs docker rmi -f"
+# Remove all volumes:
+alias dm-dropvolumes="docker volume rm `docker volume ls -q -f dangling=true`"
 
 # alias docker-stats="docker stats $(docker ps|grep -v 'NAMES'| rev | awk '{print $1}' | rev|tr '\n' ' ')"
