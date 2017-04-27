@@ -16,9 +16,11 @@ alias dm-env='docker-machine env $ACTIVE_DOCKER_MACHINE'
 alias dm-inspect='docker-machine inspect $ACTIVE_DOCKER_MACHINE'
 alias dm-config='docker-machine config $ACTIVE_DOCKER_MACHINE'
 
-alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
+# Restart stopped containers
 alias docker-restart='docker ps -a -f status=exited -q | xargs docker restart'
 # Shorter output, keeping things sane on laptop-sized screens:
+alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
+# (Shows even stopped containers) shorter output, keeping things sane on laptop-sized screens:
 alias dm-psa='docker ps -a --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
 # Remove inactive containers:
 alias dm-clean='docker ps -a -f status=exited -f status=created -q | xargs docker rm -f'
