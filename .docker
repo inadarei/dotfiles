@@ -31,6 +31,6 @@ alias dm-cleanimages="docker images | grep -i none | awk '{print $3}' | xargs do
 # Remove all local images:
 alias dm-dropimages="docker images | grep -i ago | awk '{print $3}' | xargs docker rmi -f"
 # Remove all volumes:
-alias dm-dropvolumes="docker volume rm `docker volume ls -q -f dangling=true`"
+alias dm-dropvolumes="docker volume ls -q -f dangling=true | xargs docker volume rm "
 
 # alias docker-stats="docker stats $(docker ps|grep -v 'NAMES'| rev | awk '{print $1}' | rev|tr '\n' ' ')"
