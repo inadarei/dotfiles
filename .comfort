@@ -9,3 +9,13 @@ shopt -s cdspell
 
 # requires https://github.com/nvbn/thefuck to be installed
 # eval $(thefuck --alias)
+
+### ALIASES
+
+# Usage example: ffmpeg -i source.m4a target.mp3
+# Example 2: ffmpeg -i {input}.mov -vcodec h264 -acodec aac -strict -2 {output}.mp4
+alias ffmpeg='docker run --rm -v "$(pwd)":/tmp/workdir -w="/tmp/workdir" jrottenberg/ffmpeg $@'
+
+# Usage: jekyll-dev or: jekyll <arguments>
+# alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
+alias jekyll-dev='jekyll s -H 0.0.0.0 -w --limit_posts 20'
