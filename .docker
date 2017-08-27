@@ -6,18 +6,24 @@ alias dm-restartall='docker ps -a -f status=exited -q | xargs docker restart'
 alias dm-ps='docker ps --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
 # (Shows even stopped containers) shorter output, keeping things sane on laptop-sized screens:
 alias dm-psa='docker ps -a --format="table {{ .ID }}\\t{{ .Status }}\\t{{ .Image }}\\t{{ .Names }}"'
+
 # Remove inactive containers:
 alias dm-clean='docker ps -a -f status=exited -f status=created -q | xargs docker rm -f'
 # Remove all containers:
 alias dm-drop='docker ps -a -q | xargs docker rm -f'
+
 # Remove dangling images:
 alias dm-cleanimages="docker image prune"
 # Remove all local images, even used ones:
 alias dm-dropimages="docker images | grep -i ago | awk '{print $3}' | xargs docker rmi -f"
+
 # Remove dangling volumes:
 alias dm-cleanvolumes="docker volume prune"
 # Remove all volumes, even used ones:
 alias dm-dropvolumes="docker volume ls -q -f dangling=true | xargs docker volume rm "
+
+# Remove dangling networks:
+alias dm-cleannetworks="docker network prune"
 
 ### Docker Management
 
