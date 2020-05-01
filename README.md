@@ -30,7 +30,7 @@ In order to use Docker aliases (in .docker file) you will need to make sure you 
 3. Install .vimrc: 
 
     1. install https://github.com/VundleVim/Vundle.vim
-    2. Link config file by running `ln -s ~/irakli-dotfiles/.vimrc ~/.vimrc`
+    2. Link config file by running `ln -s ~/irakli-dotfiles/dot_vimrc ~/.vimrc`
     2. Install required Vundle plugins by running `vim +PluginInstall +qall`
     3. Log out and log back into the session
 
