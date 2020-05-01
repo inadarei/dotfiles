@@ -62,7 +62,7 @@ set laststatus=2
 let g:airline_theme = 'pencil'
 
 
-# Avoid headaches when pasting text
+" Avoid headaches when pasting text
 :set paste
 
 " Ignore case while searching
