@@ -25,4 +25,6 @@ alias prikey="more ~/.ssh/id_rsa | xclip -selection clipboard | echo '=> Private
 
 # Usage: jekyll-dev or: jekyll <arguments>
 # alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
-# alias jekyll-dev='jekyll s -H 0.0.0.0 -w --limit_posts 20'
+
+# alias jekyll-dev='jekyll s -H 0.0.0.0 -w --limit_posts 20 -B'
+# alias jekyll-stop='pkill -f jekyll'
