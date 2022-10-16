@@ -1,11 +1,11 @@
 # Case-insensitive globbing (used in pathname expansion)
-shopt -s nocaseglob
+# shopt -s nocaseglob
 
 # Append to the Bash history file, rather than overwriting it
-shopt -s histappend
+# shopt -s histappend
 
 # Autocorrect typos in path names when using `cd`
-shopt -s cdspell
+# shopt -s cdspell
 
 	
 # Pipe my public key to my clipboard.
@@ -26,5 +26,7 @@ alias prikey="more ~/.ssh/id_rsa | xclip -selection clipboard | echo '=> Private
 # Usage: jekyll-dev or: jekyll <arguments>
 # alias jekyll='docker run --rm -v $(pwd):/tmp/jekyll -w "/tmp/jekyll" -it -p 4000:4000 irakli/jekyll'
 
-alias jekyll-dev='bundle exec jekyll s -H 0.0.0.0 -w --limit_posts 20 -B'
+
+jekyllhostset="${JEKYLL_HOST:-0.0.0.0}"
+alias jekyll-dev='bundle exec jekyll s -H $jekyllhostset -w --future --incremental --limit_posts 20'
 alias jekyll-stop='pkill -f jekyll'
