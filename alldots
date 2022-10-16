@@ -3,5 +3,5 @@
 source ~/dotfiles/.comfort
 source ~/dotfiles/.docker
 source ~/dotfiles/.utilities
-source ~/dotfiles/.comfort
+source ~/dotfiles/.kube
 source ~/dotfiles/.exports
