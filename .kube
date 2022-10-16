@@ -1,0 +1,12 @@
+#!/usr/bin/env/zsh
+
+alias k=/opt/homebrew/bin/kubectl
+
+k-ns-get() {
+	k config view --minify | grep namespace:
+}
+	
+k-ns-set () {
+	k config set-context --current --namespace=$1	
+}
+
