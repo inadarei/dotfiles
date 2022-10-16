@@ -10,3 +10,12 @@ k-ns-set () {
 	k config set-context --current --namespace=$1	
 }
 
+# pass the podname as the first argument and namespace as the second
+k-env() {
+    k exec $1 -n $2 -- printenv
+}
+
+# pass the podname to see ports exposed by that pod
+k-podports() {
+    k get pod $1 --template='{{(index (index .spec.containers 0).ports 0).containerPort}}{{"\n"}}'
+}
